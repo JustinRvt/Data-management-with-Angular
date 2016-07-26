@@ -1,0 +1,41 @@
+body {
+
+}
+
+.btn.waves-effect.waves-light.teal.accent-4.addCompany {
+  margin:25px 5px 0 0;
+}
+
+.btn.waves-effect.waves-light.red.darken-3.cancel {
+  margin: 25px -40px 0 0;
+}
+.companiesTable {
+  margin-left: auto;
+  margin-right:auto;
+  width: 95%;
+  height: 450px;
+  overflow-x:auto;
+
+  th {
+    padding: 2%;
+  }
+  td {
+    padding:0 2%;
+    height:60px;
+    width:20%;
+  }
+}
+
+#addCompanyModal {
+  height: 360px;
+}
+
+a.btn-floating.btn-large.waves-effect.waves-light.teal.accent-4.modal-trigger {
+  position:fixed;
+  top:20%;
+  right:10%;
+}
+
+a.brand-logo {
+  padding-left:2%;
+}

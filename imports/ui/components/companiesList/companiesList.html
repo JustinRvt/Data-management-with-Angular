@@ -1,11 +1,21 @@
-<ul>
-    <li ng-repeat="company in companiesList.companies">
-        <p>
-            <span>{{company.Identifiant_enseigne}}</span>
-            <span>{{company.Statut_enseigne}}</span>
-            <span>{{company.Mode_developpement}}</span>
-            <span>{{company.Enseigne}}</span>
-            <span>{{company.Secteur_activite}}</span>
-        </p>
-    </li>
-</ul>
+<company-add></company-add>
+<table class="highlight bordered responsive-table companiesTable">
+    <thead>
+        <tr class="blue lighten-5">
+            <th data-field="Identifiant_enseigne">Identifiant</th>
+            <th data-field="Statut_enseigne">Statut</th>
+            <th data-field="Mode_developpement">Mode développement</th>
+            <th data-field="Enseigne">Enseigne</th>
+            <th data-field="Secteur_activite">Secteur d'activité</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="company in companiesList.companies">
+            <td>{{company.Identifiant_enseigne}}</td>
+            <td>{{company.Statut_enseigne}}</td>
+            <td>{{company.Mode_developpement}}</td>
+            <td><a ui-sref="companyDetails({ companyId: company._id })">{{company.Enseigne}}</a></td>
+            <td>{{company.Secteur_activite}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,39 @@
+<!-- Modal Trigger -->
+<a class="btn-floating btn-large waves-effect waves-light teal accent-4 modal-trigger floatingAddCompanyModal btn tooltipped" data-position="left" data-delay="50" data-tooltip="Ajouter une nouvelle enseigne" href="#addCompanyModal">
+    <i class="material-icons">add</i>
+</a>
+<!-- Modal Structure -->
+<div id="addCompanyModal" class="row modal">
+    <div class="modal-content">
+        <h4>Création d'une enseigne</h4>
+        <p>Veuillez entrez les informations nécessaires à la création d'une enseigne</p>
+
+        <form class="col s12">
+            <div class="input-field col s12">
+                <label for="Enseigne">
+                    Nom de l'enseigne
+                </label>
+                <input type="text" id="Enseigne" class="validate" ng-model="companyAdd.company.Enseigne" required/>
+            </div>
+            <div class="input-field col s12">
+
+                <select ng-model="companyAdd.company.Statut_enseigne" required>
+                    <option value="" disabled selected>Statut de l'enseigne</option>
+                    <option value="Adhérent">Adhérent</option>
+                    <option value="Non adhérent">Non adhérent</option>
+                </select>
+            </div>
+
+        </form>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col s2 offset-s4">
+                <a class="modal-action modal-close btn waves-effect waves-light red darken-3 cancel">Annuler</a>
+            </div>
+            <div class="col s6">
+                <a class="modal-action modal-close btn waves-effect waves-light teal accent-4 addCompany" ng-click="companyAdd.submit()">Ajouter une enseigne</a>
+            </div>
+        </div>
+    </div>
+</div>

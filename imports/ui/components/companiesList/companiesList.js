@@ -12,11 +12,11 @@ class CompaniesList {
 
         $reactive(this).attach($scope);
 
-        this.helpers({
-            companies: function() {
-                return Companies.find({
+        this.subscribe('companies');
 
-                });
+        this.helpers({
+            companies() {
+                return Companies.find({});
             }
         });
     }

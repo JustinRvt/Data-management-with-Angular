@@ -18,18 +18,32 @@ export default angular.module(name, [
     uiRouter,
     CompaniesList,
     CompanyDetails,
-    Navigation
+    Navigation,
+    'accounts.ui'
 ])
 .component(name, {
     template,
     controllerAs: name,
     controller: Exfff
 })
-.config(config);
+.config(config)
+.run(run);
 
 function config($locationProvider, $urlRouterProvider){
   'ngInject';
 
   $locationProvider.html5Mode(true);
+  
   $urlRouterProvider.otherwise('/enseignes');
+}
+
+function run($rootScope, $state){
+  'ngInject';
+
+  $rootScope.$on('$stateChangeError',
+    (event, toState, toParams, fromState, fromParams, error) => {
+      if (error === 'AUTH_REQUIRED') {
+        $state.go('companies');
+      }
+    });
 }

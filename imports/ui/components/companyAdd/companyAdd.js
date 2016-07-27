@@ -1,6 +1,8 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
+import { Meteor } from 'meteor/meteor';
+
 import template from './companyAdd.html';
 import { Companies } from '../../../api/companies';
 
@@ -10,7 +12,13 @@ class CompanyAdd {
   }
 
   submit(){
-    console.log('submit:', this.company);
+    this.company.owner = Meteor.user()._id;
+    Companies.insert(this.company);
+    this.reset();
+  }
+
+  reset(){
+    this.company= {};
   }
 }
 

@@ -1,21 +1,39 @@
 <company-add></company-add>
-<table class="highlight bordered responsive-table companiesTable">
-    <thead>
-        <tr class="blue lighten-5">
-            <th data-field="Identifiant_enseigne">Identifiant</th>
-            <th data-field="Statut_enseigne">Statut</th>
-            <th data-field="Mode_developpement">Mode développement</th>
-            <th data-field="Enseigne">Enseigne</th>
-            <th data-field="Secteur_activite">Secteur d'activité</th>
+<md-table-container>
+<table md-table md-row-select
+       ng-model="selected"
+       md-progress="promise"
+       class="highlight bordered responsive-table companiesTable">
+
+    <thead md-head md-order="query.order" md-on-reorder="onReorder">
+        <tr md-row class="blue lighten-5">
+            <th md-column md-order-by="company.Identifiant_enseigne.value" data-field="Identifiant_enseigne">Identifiant</th>
+            <th md-column md-order-by="nameToLower1"  data-field="Statut_enseigne">Statut</th>
+            <th md-column md-order-by="nameToLower2"  data-field="Mode_developpement">Mode développement</th>
+            <th md-column md-order-by="nameToLower3"  data-field="Enseigne">Enseigne</th>
+            <th md-column md-order-by="nameToLower4"  data-field="Secteur_activite">Secteur d'activité</th>
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="company in companiesList.companies">
-            <td>{{company.Identifiant_enseigne}}</td>
-            <td>{{company.Statut_enseigne}}</td>
-            <td>{{company.Mode_developpement}}</td>
-            <td><a ui-sref="companyDetails({ companyId: company._id })">{{company.Enseigne}}</a></td>
-            <td>{{company.Secteur_activite}}</td>
+        <tr md-row md-select=""
+            md-select-id="{{company.Identifiant_enseigne}}"
+            md-auto-select md-on-select="onSelect"
+            md-on-deselect="onDeselect"
+            ng-repeat="company in companiesList.companies">
+
+            <td md-cell>{{company.Identifiant_enseigne}}</td>
+            <td md-cell>{{company.Statut_enseigne}}</td>
+            <td md-cell>{{company.Mode_developpement}}</td>
+            <td md-cell><a ui-sref="companyDetails({ companyId: company._id })">{{company.Enseigne}}</a></td>
+            <td md-cell>{{company.Secteur_activite}}</td>
         </tr>
     </tbody>
 </table>
+</md-table-container>
+<md-table-pagination
+    md-limit="query.limit"
+    md-page="query.page"
+    md-total="{{company.count}}"
+    md-on-paginate="onPaginate"
+    md-page-select>
+</md-data-table-pagination>

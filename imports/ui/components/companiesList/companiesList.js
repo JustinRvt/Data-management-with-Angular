@@ -1,6 +1,8 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
+import ngMaterial from 'angular-material';
+import mddatatable from 'angular-material-data-table';
 
 import template from './companiesList.html';
 import { Companies } from '../../../api/companies';
@@ -27,7 +29,9 @@ const name = 'companiesList';
 export default angular.module(name, [
         angularMeteor,
         uiRouter,
-        CompanyAdd
+        CompanyAdd,
+        ngMaterial,
+        mddatatable
     ])
     .component(name, {
         template,
